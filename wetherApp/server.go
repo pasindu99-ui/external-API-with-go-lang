@@ -30,7 +30,6 @@ func getUser(c echo.Context) error {
 
 func getWeatherDetails(c echo.Context) error {
 	city_name := c.FormValue("location")
-	fmt.Println("city_name: ", city_name)
 	API_key := "db8e2e85e965d896159bf85f3880e393"
 	API_URL := fmt.Sprintf("https://api.openweathermap.org/data/2.5/weather?q=%s&appid=%s", city_name, API_key)
 
@@ -38,7 +37,6 @@ func getWeatherDetails(c echo.Context) error {
 	if err != nil {
 		return err
 	}
-	fmt.Println("response: ", response)
 	body, err := ioutil.ReadAll(response.Body)
 	if err != nil {
 		return err
